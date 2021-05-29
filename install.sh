@@ -1,7 +1,7 @@
 # Download and save
 echo -e "Mengunduh pingplus!"
-curl -sLko "/root/pingplus.sh" "https://github.com/sachnun/pin
-gplus-openwrt/raw/main/bash/pingplus.sh"
+curl -sLko "/root/pingplus.sh" "https://github.com/sachnun/pingplus-openwrt/raw/main/bash/pingplus.sh"
+chmod +x "/root/pingplus.sh"
 
 # Set Autostart
 echo -e "Konfigurasi pingplus autostart!"
