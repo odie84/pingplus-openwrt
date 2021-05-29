@@ -1,27 +1,45 @@
 #!/bin/bash
 
+echo "PingPlus Started!" && n=1
 while true; do
 
 MODEM="PT Telekomunikasi Selular Indonesia"
-ISP=$(curl -s http://ip-api.com/line/?fields=isp -m 60)
+ISP=$(curl -s http://ip-api.com/line/?fields=isp)
 STATUS=$(cat /root/libernet/log/status.log)
 
 if [ "${STATUS}" = "2" ]; then
 
-echo ""
-if [ "${ISP}" = "${MODEM}" ] || [ "${ISP}" = "" ]; then
-	echo "Ping Fail - ${ISP}"
-	echo $(date) && sleep 5
+	echo ""
+	if [ "${ISP}" = "${MODEM}" ]; then
 
-	# Restart Libernet
-	/root/libernet/bin/service.sh -ds
-	/root/libernet/bin/service.sh -sl
-else
-	echo "Ping Done - ${ISP}"
-	echo $(date)
+		echo "Ping Fail - ${ISP}"
+		echo $(date) && sleep 5
+
+		# Restart Libernet
+		/root/libernet/bin/service.sh -ds
+		/root/libernet/bin/service.sh -sl
+
+	elif [ "${ISP}" = "" ]; then
+
+		echo "Ping Null ${n} .."
+		echo $(date) && sleep 5
+		
+		if [ "${n}" = "6" ]; then
+
+			# Restart Libernet
+			/root/libernet/bin/service.sh -ds
+			/root/libernet/bin/service.sh -sl
+
+		fi
+		n=$((n + 1))
+
+	else
+
+		echo "Ping Done - ${ISP}"
+		echo $(date)
+		n=1
+
+	fi
 fi
-
-fi
-
-sleep 30
+sleep 10
 done
