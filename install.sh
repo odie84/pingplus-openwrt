@@ -10,7 +10,7 @@ sed -i "s/exit 0/$(echo "screen -AmdS pingplus /root/pingplus.sh" | sed 's/\//\\
 
 # Running
 echo "Menjalankan pingplus!"
-screen -list | grep pingplus | awk -F '[.]' {'print $1'} && sleep 1
+kill $(screen -list | grep pingplus | awk -F '[.]' {'print $1'}) && sleep 2
 screen -AmdS pingplus /root/pingplus.sh
 
 echo "" && echo "Berhasil." && exit
