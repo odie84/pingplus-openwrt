@@ -24,10 +24,12 @@ if [ "${STATUS}" = "2" ]; then
 		echo "Ping Null ${n} .."
 		echo $(date) && sleep 5
 		
-		if [ "${n}" = "6" ]; then
-
-			# Restart Libernet
+		if [ "${n}" = "5" ]; then
+		
+			# Restart Hilink & Libernet
+			ifdown hilink && sleep 1
 			/root/libernet/bin/service.sh -ds
+			ifup hilink && sleep 3
 			/root/libernet/bin/service.sh -sl
 
 		fi
