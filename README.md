@@ -1,5 +1,4 @@
 # PingPlus
-## _libernet checker connection_
 
 ## Installation
 
