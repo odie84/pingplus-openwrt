@@ -1,5 +1,7 @@
 # PingPlus
 
+<img src="https://i.ibb.co/b36KBHN/pingplus.png" alt="putty" />
+
 ## Features
 
 menjaga koneksi libernet agar selalu terhubung ke jaringan
