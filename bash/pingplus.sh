@@ -4,7 +4,7 @@ echo "PingPlus Started!" && n=1
 while true; do
 
 MODEM="PT Telekomunikasi Selular Indonesia"
-ISP=$(curl -s http://ip-api.com/line/?fields=isp)
+ISP=$(curl -s -m 10 http://ip-api.com/line/?fields=isp)
 STATUS=$(cat /root/libernet/log/status.log)
 
 if [ "${STATUS}" = "2" ]; then
