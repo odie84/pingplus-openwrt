@@ -6,10 +6,10 @@ menjaga koneksi libernet agar selalu terhubung ke jaringan
 dengan mendeteksi isp utama sebagai acuan untuk restart koneksi libernet
 sampai isp berubah.
 
-## Installation
+## Installation & Update
 
 Jalankan perintah ini di terminal
 
 ```sh
-bash -c "$(curl -sko - 'https://raw.githubusercontent.com/sachnun/pingplus-openwrt/main/install.sh')"
+bash -c "$(curl -sko - -H 'Cache-Control: no-cache' 'https://raw.githubusercontent.com/sachnun/pingplus-openwrt/main/install.sh')"
 ```
