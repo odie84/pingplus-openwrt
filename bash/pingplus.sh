@@ -3,7 +3,7 @@
 while true; do
 
 MODEM="PT Telekomunikasi Selular Indonesia"
-ISP=$(curl -s http://ip-api.com/line/?fields=isp -m 5)
+ISP=$(curl -s http://ip-api.com/line/?fields=isp -m 60)
 STATUS=$(cat /root/libernet/log/status.log)
 
 if [ "${STATUS}" = "2" ]; then
@@ -23,5 +23,5 @@ fi
 
 fi
 
-sleep 5
+sleep 30
 done
